@@ -1,0 +1,13 @@
+// Use IntelliSense to learn about possible Mock debug attributes.
+// Hover to view descriptions of existing attributes.
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "swift-debug",
+            "request": "launch",
+            "name": "Swift Program Debug",
+            "program": "${workspaceRoot}/.build/debug/sourcekite"
+        }
+    ]
+}

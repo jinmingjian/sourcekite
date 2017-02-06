@@ -1,0 +1,22 @@
+{
+    "editor.quickSuggestions": false,
+    "files.associations": {
+        "*h*h*h*h*h*h*h*h*h*h*h*hcstdlib": "cpp",
+        "cstdlib": "cpp",
+        "memory_resource": "cpp",
+        "type_traits": "cpp",
+        "*h*hexception": "cpp",
+        "typeinfo": "cpp",
+        "random": "cpp",
+        "utility": "cpp",
+        "cctype": "cpp",
+        "cwchar": "cpp",
+        "*hinitializer_list": "cpp",
+        "cstddef": "cpp",
+        "cstdio": "cpp",
+        "new": "cpp",
+        "*h*hclocale": "cpp",
+        "*h*h*h*hctime": "cpp",
+        "*hcstdint": "cpp"
+    }
+}

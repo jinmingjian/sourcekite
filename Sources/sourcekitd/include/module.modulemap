@@ -1,0 +1,4 @@
+module sourcekitd [system] {
+  header "sourcekitd.h"
+  export *
+}
