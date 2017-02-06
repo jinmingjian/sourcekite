@@ -6,7 +6,6 @@ import sourcekitd
 #endif
 
 //assumption:single-thread
-//unicode:测试
 
 enum ParsingState {
     case endRequest
@@ -35,8 +34,10 @@ func printResponse(forRequest reqid: Int, _ resp: sourcekitd_response_t) -> Bool
 debugLog("sourcekitd_initialize")
 sourcekitd_initialize()
 
-var (hasError, requestContent, reqid, state) = 
-    (false,   "",            -1,   ParsingState.endRequest)
+var hasError = false
+var requestContent = ""
+var reqid = -1
+var state = ParsingState.endRequest
 while let input = readLine() {
     debugLog("state: \(state)")
     debugLog("input: \(input)")
@@ -64,10 +65,6 @@ while let input = readLine() {
         } else {
             requestContent += input
         }
-    default://TODO endSession, should not used
-        debugLog("sourcekite session ended.")
-        sourcekitd_shutdown()
-        break
     }
 }//FIXME
 
