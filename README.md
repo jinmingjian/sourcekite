@@ -1,4 +1,6 @@
-# sourcekite: SDE
+# sourcekite
+
+pronounced: [source kite] :smile:
 
 [SDE](https://github.com/jinmingjian/sde)'s language server's backend which is written in Swift. You need to build this tool if you want to use [SDE](https://github.com/jinmingjian/sde).
 
