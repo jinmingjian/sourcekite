@@ -21,7 +21,14 @@ clone this project, then run build command in that project as follow:
 
 (NOTE: make sure you have installed the swift toolchain into that location. You can do this via [download from offical site](https://swift.org/download/#snapshots) or [swiftenv](https://swiftenv.fuller.li))
 
-Finally set "swift.path.sourcekite" in vscode to let SDE know the location of this tool. It recommends to add this setting to the gloabl via _"File" -> "Preferences" -> "Settings"_.
+Finally set "swift.path.sourcekite" in vscode to let SDE know the location of this tool. It recommends to add this setting to the gloabl via _"File" -> "Preferences" -> "Settings"_. Like:
+
+```javascript
+{
+    "swift.path.sourcekite": "/path/to/repo/sourcekite/.build/debug/sourcekite"
+}
+```
+
 
 ## Issues
 file an issues if you have problem.
