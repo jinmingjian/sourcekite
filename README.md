@@ -8,9 +8,13 @@ pronounced: [source kite] :smile:
 clone this project, then run build command in that project as follow:
 
 ### for Linux
-> swift build -Xlinker -L/usr/lib/sourcekitdInProc.framework -Xlinker -l:sourcekitdInProc 
+> sudo ln -s /usr/lib/sourcekitdInProc.framework/sourcekitdInProc /usr/lib/sourcekitdInProc
 
-(NOTE: change the above linking location/option to your own when necessary)
+> swift build -Xlinker -l:sourcekitdInProc
+
+(NOTE1: change the above linking location/option to your own when necessary)
+
+(NOTE2: the sourcekitd framework are not included in the the default official download. You can try a binary [here](https://github.com/norio-nomura/docker-sourcekit-builder/releases) with sourcekitd included, but note this is built in Ubuntu 16.04)
 
 ### for MacOS
 > swift build -Xswiftc -framework -Xswiftc sourcekitd -Xswiftc -F -Xswiftc /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib -Xlinker -rpath -Xlinker /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib
