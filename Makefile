@@ -1,7 +1,10 @@
 .PHONY: release install
 
+LIB_DIR=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib
+
 release:
-	swift build -Xswiftc -framework -Xswiftc sourcekitd -Xswiftc -F -Xswiftc /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib -Xlinker -rpath -Xlinker /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib -c release
+
+	swift build -Xswiftc -framework -Xswiftc sourcekitd -Xswiftc -F -Xswiftc $(LIB_DIR) -Xlinker -rpath -Xlinker $(LIB_DIR) -c release
 
 install: release
 	cp .build/release/sourcekite $(HOME)/bin/
