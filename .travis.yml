@@ -31,25 +31,25 @@ matrix:
     - os: linux
       env:
         - SWIFT_VERSION=4.0
+        - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.swiftenv/versions/$SWIFT_VERSION/usr/lib
       install:
         - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
       script:
-        - sudo ln -s /usr/lib/sourcekitdInProc.framework/sourcekitdInProc /usr/lib/sourcekitdInProc
         - swift build -Xlinker -l:sourcekitdInProc
     - os: linux
       env:
         - SWIFT_VERSION=4.0.2
+        - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.swiftenv/versions/$SWIFT_VERSION/usr/lib
       install:
         - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
       script:
-        - sudo ln -s /usr/lib/sourcekitdInProc.framework/sourcekitdInProc /usr/lib/sourcekitdInProc
         - swift build -Xlinker -l:sourcekitdInProc
 
     - os: linux
       env:
         - SWIFT_VERSION=4.0.3
+        - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.swiftenv/versions/$SWIFT_VERSION/usr/lib
       install:
         - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
       script:
-        - sudo ln -s /usr/lib/sourcekitdInProc.framework/sourcekitdInProc /usr/lib/sourcekitdInProc
         - swift build -Xlinker -l:sourcekitdInProc
