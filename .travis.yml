@@ -1,0 +1,88 @@
+language: generic
+sudo: required
+dist: trusty
+notifications:
+  email: false
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.3beta # Actually released
+      script:
+        - make LIB_DIR=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib
+
+    - os: osx
+      osx_image: xcode9.2
+      script:
+        - make LIB_DIR=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib
+
+    - os: osx
+      osx_image: xcode9.1
+      script:
+        - make LIB_DIR=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib
+
+    - os: osx
+      osx_image: xcode9
+      script:
+        - make LIB_DIR=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - SWIFT_VERSION=4.0.2
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+      script:
+        - make LIB_DIR=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - SWIFT_VERSION=4.0.3
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+      script:
+        - make LIB_DIR=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/lib
+
+    - os: linux
+      env:
+        - SWIFT_VERSION=4.0
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        - export LD_LIBRARY_PATH=/usr/lib:$SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib
+        - sudo ln -s $SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib/libsourcekitdInProc.so /usr/lib/sourcekitdInProc
+        - sudo ldconfig
+      script:
+        - swift build -Xlinker -l:sourcekitdInProc -c release
+
+    - os: linux
+      env:
+        - SWIFT_VERSION=4.0.2
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        - export LD_LIBRARY_PATH=/usr/lib:$SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib
+        - sudo ln -s $SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib/libsourcekitdInProc.so /usr/lib/sourcekitdInProc
+        - sudo ldconfig
+      script:
+        - swift build -Xlinker -l:sourcekitdInProc -c release
+
+    - os: linux
+      env:
+        - SWIFT_VERSION=4.0.3
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        - export LD_LIBRARY_PATH=/usr/lib:$SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib
+        - sudo ln -s $SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib/libsourcekitdInProc.so /usr/lib/sourcekitdInProc
+        - sudo ldconfig
+      script:
+        - swift build -Xlinker -l:sourcekitdInProc -c release
+
+    - os: linux
+      env:
+        - SWIFT_VERSION=4.1
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        - export LD_LIBRARY_PATH=/usr/lib:$SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib
+        - sudo ln -s $SWIFTENV_ROOT/versions/$SWIFT_VERSION/usr/lib/libsourcekitdInProc.so /usr/lib/sourcekitdInProc
+        - sudo ldconfig
+      script:
+        - swift build -Xlinker -l:sourcekitdInProc -c release
